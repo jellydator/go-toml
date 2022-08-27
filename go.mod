@@ -1,4 +1,4 @@
-module github.com/pelletier/go-toml/v2
+module github.com/jellydator/go-toml
 
 go 1.16
 

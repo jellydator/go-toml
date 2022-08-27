@@ -1,7 +1,7 @@
 package tracker
 
 import (
-	"github.com/pelletier/go-toml/v2/internal/ast"
+	"github.com/jellydator/go-toml/internal/ast"
 )
 
 // KeyTracker is a tracker that keeps track of the current Key as the AST is

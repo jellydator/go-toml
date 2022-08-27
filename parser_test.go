@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pelletier/go-toml/v2/internal/ast"
+	"github.com/jellydator/go-toml/internal/ast"
 	"github.com/stretchr/testify/require"
 )
 

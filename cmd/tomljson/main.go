@@ -14,7 +14,7 @@
 //
 // Using Go:
 //
-//	go install github.com/pelletier/go-toml/v2/cmd/tomljson@latest
+//	go install github.com/jellydator/go-toml/cmd/tomljson@latest
 package main
 
 import (
@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/pelletier/go-toml/v2"
-	"github.com/pelletier/go-toml/v2/internal/cli"
+	"github.com/jellydator/go-toml"
+	"github.com/jellydator/go-toml/internal/cli"
 )
 
 const usage = `tomljson can be used in two ways:

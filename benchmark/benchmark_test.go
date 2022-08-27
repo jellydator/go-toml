@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pelletier/go-toml/v2"
+	"github.com/jellydator/go-toml"
 	"github.com/stretchr/testify/require"
 )
 

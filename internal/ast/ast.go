@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/pelletier/go-toml/v2/internal/danger"
+	"github.com/jellydator/go-toml/internal/danger"
 )
 
 // Iterator starts uninitialized, you need to call Next() first.

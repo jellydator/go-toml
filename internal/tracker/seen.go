@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/pelletier/go-toml/v2/internal/ast"
+	"github.com/jellydator/go-toml/internal/ast"
 )
 
 type keyKind uint8

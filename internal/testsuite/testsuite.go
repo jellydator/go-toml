@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/pelletier/go-toml/v2"
+	"github.com/jellydator/go-toml"
 )
 
 // Marshal is a helpfer function for calling toml.Marshal

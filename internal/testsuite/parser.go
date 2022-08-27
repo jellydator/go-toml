@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/pelletier/go-toml/v2"
+	"github.com/jellydator/go-toml"
 )
 
 type parser struct{}

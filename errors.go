@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/pelletier/go-toml/v2/internal/danger"
+	"github.com/jellydator/go-toml/internal/danger"
 )
 
 // DecodeError represents an error encountered during the parsing or decoding

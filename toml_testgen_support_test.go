@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/pelletier/go-toml/v2"
-	"github.com/pelletier/go-toml/v2/internal/testsuite"
+	"github.com/jellydator/go-toml"
+	"github.com/jellydator/go-toml/internal/testsuite"
 	"github.com/stretchr/testify/require"
 )
 

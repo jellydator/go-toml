@@ -18,7 +18,7 @@ documentation.
 ## Import
 
 ```go
-import "github.com/pelletier/go-toml/v2"
+import "github.com/jellydator/go-toml"
 ```
 
 See [Modules](#Modules).

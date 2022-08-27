@@ -5,7 +5,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/pelletier/go-toml/v2"
+	"github.com/jellydator/go-toml"
 )
 
 // addTag adds JSON tags to a data structure as expected by toml-test.

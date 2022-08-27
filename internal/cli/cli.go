@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/pelletier/go-toml/v2"
+	"github.com/jellydator/go-toml"
 )
 
 type ConvertFn func(r io.Reader, w io.Writer) error

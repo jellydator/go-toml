@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/pelletier/go-toml/v2/internal/danger"
+	"github.com/jellydator/go-toml/internal/danger"
 )
 
 func TestSubsliceOffsetValid(t *testing.T) {

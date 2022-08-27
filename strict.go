@@ -1,9 +1,9 @@
 package toml
 
 import (
-	"github.com/pelletier/go-toml/v2/internal/ast"
-	"github.com/pelletier/go-toml/v2/internal/danger"
-	"github.com/pelletier/go-toml/v2/internal/tracker"
+	"github.com/jellydator/go-toml/internal/ast"
+	"github.com/jellydator/go-toml/internal/danger"
+	"github.com/jellydator/go-toml/internal/tracker"
 )
 
 type strict struct {
