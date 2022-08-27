@@ -3,6 +3,7 @@ package toml
 import (
 	"bytes"
 	"encoding"
+	"encoding/json"
 	"fmt"
 	"io"
 	"math"
@@ -229,6 +230,20 @@ func (ctx *encoderCtx) isRoot() bool {
 }
 
 func (enc *Encoder) encode(b []byte, ctx encoderCtx, v reflect.Value) ([]byte, error) {
+	appendFloat64 := func(f float64) []byte {
+		if math.IsNaN(f) {
+			return append(b, "nan"...)
+		} else if f > math.MaxFloat64 {
+			return append(b, "inf"...)
+		} else if f < -math.MaxFloat64 {
+			return append(b, "-inf"...)
+		} else if math.Trunc(f) == f {
+			return strconv.AppendFloat(b, f, 'f', 1, 64)
+		} else {
+			return strconv.AppendFloat(b, f, 'f', -1, 64)
+		}
+	}
+
 	i := v.Interface()
 
 	switch x := i.(type) {
@@ -243,6 +258,18 @@ func (enc *Encoder) encode(b []byte, ctx encoderCtx, v reflect.Value) ([]byte, e
 		return append(b, x.String()...), nil
 	case LocalDateTime:
 		return append(b, x.String()...), nil
+	case json.Number:
+		intNum, err := x.Int64()
+		if err == nil {
+			return strconv.AppendInt(b, intNum, 10), nil
+		}
+
+		floatNum, err := x.Float64()
+		if err == nil {
+			return appendFloat64(floatNum), nil
+		}
+
+		return enc.encodeString(b, x.String(), ctx.options), nil
 	}
 
 	hasTextMarshaler := v.Type().Implements(textMarshalerType)
@@ -304,18 +331,7 @@ func (enc *Encoder) encode(b []byte, ctx encoderCtx, v reflect.Value) ([]byte, e
 			b = strconv.AppendFloat(b, f, 'f', -1, 32)
 		}
 	case reflect.Float64:
-		f := v.Float()
-		if math.IsNaN(f) {
-			b = append(b, "nan"...)
-		} else if f > math.MaxFloat64 {
-			b = append(b, "inf"...)
-		} else if f < -math.MaxFloat64 {
-			b = append(b, "-inf"...)
-		} else if math.Trunc(f) == f {
-			b = strconv.AppendFloat(b, f, 'f', 1, 64)
-		} else {
-			b = strconv.AppendFloat(b, f, 'f', -1, 64)
-		}
+		b = appendFloat64(v.Float())
 	case reflect.Bool:
 		if v.Bool() {
 			b = append(b, "true"...)

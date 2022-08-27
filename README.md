@@ -23,6 +23,10 @@ import "github.com/pelletier/go-toml/v2"
 
 See [Modules](#Modules).
 
+## Fork Features
+
+This fork can handle `json.Number` when marshalling to TOML.
+
 ## Features
 
 ### Stdlib behavior

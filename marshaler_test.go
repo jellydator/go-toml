@@ -1159,6 +1159,23 @@ value = ''
 	require.Equal(t, expected, string(result))
 }
 
+func TestJSONNumber(t *testing.T) {
+	v := map[string]json.Number{
+		"a": "10",
+		"b": "20.0",
+		"c": "30abc",
+	}
+
+	expected := `a = 10
+b = 20.0
+c = '30abc'
+`
+
+	out, err := toml.Marshal(v)
+	require.NoError(t, err)
+	require.Equal(t, expected, string(out))
+}
+
 func TestLocalTime(t *testing.T) {
 	v := map[string]toml.LocalTime{
 		"a": {
